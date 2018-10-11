@@ -12,10 +12,10 @@ void activate_matrix(matrix m, ACTIVATION a)
     for(i = 0; i < m.rows; ++i){
         double sum = 0;
         for(j = 0; j < m.cols; ++j){ 
-            double x = 
+            double x = m.data[i * m.cols + j];
             if (a == LOGISTIC) {
                 // TODO
-                m.data[i*m.cols + j] = 1 / (1 + exp(x));
+                m.data[i*m.cols + j] = 1 / (1 + exp(-1 * x));
             } else if (a == RELU){
                 // TODO
                 if ( x <= 0 ) {
