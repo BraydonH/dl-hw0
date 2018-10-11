@@ -11,21 +11,32 @@ void activate_matrix(matrix m, ACTIVATION a)
     int i, j;
     for(i = 0; i < m.rows; ++i){
         double sum = 0;
-        for(j = 0; j < m.cols; ++j){
-            double x = m.data[i*m.cols + j];
-            if(a == LOGISTIC){
+        for(j = 0; j < m.cols; ++j){ 
+            double x = 
+            if (a == LOGISTIC) {
                 // TODO
+                m.data[i*m.cols + j] = 1 / (1 + exp(x));
             } else if (a == RELU){
                 // TODO
+                if ( x <= 0 ) {
+                    m.data[i * m.cols + j] = 0;
+                }
             } else if (a == LRELU){
                 // TODO
+                if ( x <= 0 ) {
+                    m.data[i * m.cols + j] = x * 0.1;
+                }
             } else if (a == SOFTMAX){
                 // TODO
+                m.data[i * m.cols + j] = exp(x);
             }
             sum += m.data[i*m.cols + j];
         }
         if (a == SOFTMAX) {
             // TODO: have to normalize by sum if we are using SOFTMAX
+            for(j = 0; j < m.cols; ++j){ 
+                m.data[i * m.cols + j] *= 1 / sum;
+            }
         }
     }
 }
