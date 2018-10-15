@@ -140,7 +140,7 @@ matrix matmul(matrix a, matrix b)
 {
     matrix c = make_matrix(a.rows, b.cols);
     // TODO: 1.4 - Implement matrix multiplication. Make sure it's fast!
-    assert(a.rows == b.cols);
+    // assert(a.rows == b.cols);
     assert(a.cols == b.rows);
     
     for (int i = 0; i < a.rows; i++) {
