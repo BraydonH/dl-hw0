@@ -72,19 +72,22 @@ void backward_connected_layer(layer l, matrix prev_delta)
 
     // Then calculate dL/dw. Use axpy to add this dL/dw into any previously stored
     // updates for our weights, which are stored in l.dw
-    axpy(
+    axpy(1, matmul(delta, in), l.dw);
 
     if(prev_delta.data){
         // Finally, if there is a previous layer to calculate for,
         // calculate dL/d(in). Again, using axpy, add this into the current
         // value we have for the previous layers delta, prev_delta.
+        axpy(1, matmul(delta, l.w), prev_delta)
     }
 }
 
 // Update 
 void update_connected_layer(layer l, float rate, float momentum, float decay)
 {
-    // TODO
+    axpy(-decay, l.w, l.dw);
+    axpy(rate, l.dw, l.w);
+    scal_matrix(momentum, l.dw);
 }
 
 layer make_connected_layer(int inputs, int outputs, ACTIVATION activation)
