@@ -5,60 +5,60 @@
 #include <assert.h>
 #include <math.h>
 
-int main( int argc, char* argv[] ) {
-    matrix m = random_matrix(5, 5, 1);
-    matrix mPrime = copy_matrix(m);
-    printf("Matrix m:");
-    print_matrix(m);
-    // test copy
-    printf("\nMatrix mPrime:");
-    print_matrix(mPrime);
+// int main( int argc, char* argv[] ) {
+//     matrix m = random_matrix(5, 5, 1);
+//     matrix mPrime = copy_matrix(m);
+//     printf("Matrix m:");
+//     print_matrix(m);
+//     // test copy
+//     printf("\nMatrix mPrime:");
+//     print_matrix(mPrime);
     
-    // test transpose
-    matrix mTranspose = transpose_matrix(m);
-    printf("\n Matrix mTranspose:");
-    print_matrix(mTranspose);
+//     // test transpose
+//     matrix mTranspose = transpose_matrix(m);
+//     printf("\n Matrix mTranspose:");
+//     print_matrix(mTranspose);
 
-    // test axpy_matrix
-    matrix simple = make_matrix( 3, 3);
-    for ( int i = 0; i < 9; i++) {
-        simple.data[i] = i;
-    }
-    matrix lessSimple = make_matrix( 3, 3);
-    for ( int i = 0; i < 9; i++ ) {
-        lessSimple.data[i] = 3 - (i % 3);
-    }
+//     // test axpy_matrix
+//     matrix simple = make_matrix( 3, 3);
+//     for ( int i = 0; i < 9; i++) {
+//         simple.data[i] = i;
+//     }
+//     matrix lessSimple = make_matrix( 3, 3);
+//     for ( int i = 0; i < 9; i++ ) {
+//         lessSimple.data[i] = 3 - (i % 3);
+//     }
 
-    printf("\n Matrix simple:");
-    print_matrix(simple);    
-    printf("\n Matrix lessSimple:");
+//     printf("\n Matrix simple:");
+//     print_matrix(simple);    
+//     printf("\n Matrix lessSimple:");
 
-    print_matrix(lessSimple);
-    axpy_matrix(2, simple, lessSimple);
+//     print_matrix(lessSimple);
+//     axpy_matrix(2, simple, lessSimple);
     
-    printf("\n Matrix lessSimple after axpy:");
-    print_matrix(lessSimple);
+//     printf("\n Matrix lessSimple after axpy:");
+//     print_matrix(lessSimple);
 
-    // test matmul
-    matrix product = matmul(simple, lessSimple);
-    printf("\n Matrix product:");
-    print_matrix(product);
+//     // test matmul
+//     matrix product = matmul(simple, lessSimple);
+//     printf("\n Matrix product:");
+//     print_matrix(product);
 
-    // test non-square x square
-    matrix non_square = make_matrix(3,4);
-    for (int i = 0; i < non_square.cols * non_square.rows; i++) {
-        non_square.data[i] = i % 5;
-    }
-    printf("\n Matrix non_square:");
-    print_matrix(non_square);
-    printf("\n Matrix simple");
-    print_matrix(simple);
-    product = matmul(simple, non_square);
+//     // test non-square x square
+//     matrix non_square = make_matrix(3,4);
+//     for (int i = 0; i < non_square.cols * non_square.rows; i++) {
+//         non_square.data[i] = i % 5;
+//     }
+//     printf("\n Matrix non_square:");
+//     print_matrix(non_square);
+//     printf("\n Matrix simple");
+//     print_matrix(simple);
+//     product = matmul(simple, non_square);
 
-    printf("\n Matrix product with simple:");
-    print_matrix(product);
+//     printf("\n Matrix product with simple:");
+//     print_matrix(product);
 
-}
+// }
 
 // Make empty matrix filled with zeros
 // int rows: number of rows in matrix
