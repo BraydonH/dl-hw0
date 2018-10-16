@@ -125,7 +125,7 @@ matrix transpose_matrix(matrix m)
     // iterate over m row by row
     for ( int i = 0; i < m.rows; i++ ) {
         for ( int j = 0; j < m.cols; j++ ) {
-            t.data[i + (j * m.cols)] = m.data[j + (i * m.cols)];
+            t.data[i + (j * t.cols)] = m.data[j + (i * m.cols)];
         }
     }
 
